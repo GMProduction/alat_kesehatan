@@ -186,20 +186,20 @@ input.form-control {
   transition: ease-in-out 0.5s;
 }
 .sidebar .menu.active {
-  background-color: #e7ceff;
+  background-color: #e1ffcb;
   transition: ease-in-out 0.2s;
-  color: #4e28f7 !important;
+  color: #66b032 !important;
 }
 .sidebar .menu.active .menu-icon {
-  color: #4e28f7;
+  color: #66b032;
 }
 .sidebar .menu.active .menu-text {
-  color: #4e28f7;
+  color: #66b032;
 }
 .sidebar .menu:hover {
   background-color: #f1f1f1;
   transition: ease-in-out 0.2s;
-  color: #4e28f7 !important;
+  color: #66b032 !important;
 }
 .sidebar .submenu {
   padding-left: 0.5rem !important;
@@ -235,15 +235,15 @@ input.form-control {
   transition: ease-in-out 0.5s;
 }
 .sidebar .submenus:hover {
-  background-color: #e7ceff;
+  background-color: #e1ffcb;
   transition: ease-in-out 0.2s;
-  color: #4e28f7 !important;
+  color: #66b032 !important;
 }
 .sidebar .submenus:hover .menu-icon {
-  color: #4e28f7;
+  color: #66b032;
 }
 .sidebar .submenus:hover .menu-text {
-  color: #4e28f7;
+  color: #66b032;
 }
 .sidebar.ciut {
   width: 60px;
@@ -309,7 +309,7 @@ input.form-control {
 }
 
 .dropdown-menu.custom .dropdown-item:hover {
-  background-color: #e7ceff !important;
+  background-color: #e1ffcb !important;
 }
 
 .form-label {
@@ -323,14 +323,18 @@ input.form-control {
   display: block;
   text-align: center;
   border: none;
-  background-color: #4e28f7;
+  background-color: #66b032;
   color: white;
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
 }
 .btn-utama.sml {
-  padding: 3px 10px;
+  padding: 5px 5px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+}
+.btn-utama.sml i {
   font-size: 0.8rem;
 }
 .btn-utama.rnd {
@@ -342,14 +346,80 @@ input.form-control {
   box-shadow: 2px 2px 20px rgba(78, 40, 247, 0.4);
 }
 
+.btn-success {
+  all: unset;
+  transition: all 0.5s;
+  display: flex;
+  text-align: center;
+  border: none;
+  background-color: #16ca5b;
+  color: #16ca5b;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  align-items: center;
+  cursor: pointer;
+}
+.btn-success a {
+  display: block;
+}
+.btn-success.sml {
+  padding: 5px 5px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+}
+.btn-success.sml i {
+  font-size: 0.8rem;
+}
+.btn-success.rnd {
+  border-radius: 50px;
+}
+.btn-success:hover {
+  transition: all 0.5s;
+  color: #1fa552;
+}
+
+.btn-danger {
+  all: unset;
+  transition: all 0.5s;
+  display: flex;
+  text-align: center;
+  border: none;
+  background-color: #f72828;
+  color: #16ca5b;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  align-items: center;
+  cursor: pointer;
+}
+.btn-danger a {
+  display: block;
+}
+.btn-danger.sml {
+  padding: 5px 5px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+}
+.btn-danger.sml i {
+  font-size: 0.8rem;
+}
+.btn-danger.rnd {
+  border-radius: 50px;
+}
+.btn-danger:hover {
+  transition: all 0.5s;
+  color: #1fa552;
+}
+
 .btn-utama-soft {
   all: unset;
   transition: all 0.5s;
   display: flex;
   text-align: center;
   border: none;
-  background-color: #e7ceff;
-  color: #4e28f7;
+  background-color: #e1ffcb;
+  color: #66b032;
   border-radius: 5px;
   padding: 10px;
   font-weight: bold;
@@ -360,16 +430,19 @@ input.form-control {
   display: block;
 }
 .btn-utama-soft.sml {
-  padding: 3px 10px;
+  padding: 5px 5px;
   font-size: 0.8rem;
   line-height: 0.8rem;
+}
+.btn-utama-soft.sml i {
+  font-size: 0.8rem;
 }
 .btn-utama-soft.rnd {
   border-radius: 50px;
 }
 .btn-utama-soft:hover {
   transition: all 0.5s;
-  color: #3c21b3;
+  color: #7dd83c;
 }
 
 .btn-danger-soft {
@@ -390,9 +463,12 @@ input.form-control {
   display: block;
 }
 .btn-danger-soft.sml {
-  padding: 3px 10px;
+  padding: 5px 5px;
   font-size: 0.8rem;
   line-height: 0.8rem;
+}
+.btn-danger-soft.sml i {
+  font-size: 0.8rem;
 }
 .btn-danger-soft.rnd {
   border-radius: 50px;
@@ -400,6 +476,40 @@ input.form-control {
 .btn-danger-soft:hover {
   transition: all 0.5s;
   color: #be2d2d;
+}
+
+.btn-accent {
+  all: unset;
+  transition: all 0.5s;
+  display: flex;
+  text-align: center;
+  border: none;
+  background-color: #fb9802;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  align-items: center;
+  cursor: pointer;
+}
+.btn-accent a {
+  display: block;
+}
+.btn-accent.sml {
+  padding: 5px 5px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+}
+.btn-accent.sml i {
+  font-size: 0.8rem;
+}
+.btn-accent.rnd {
+  border-radius: 50px;
+}
+.btn-accent:hover {
+  transition: all 0.5s;
+  color: white;
+  background-color: #db8400;
 }
 
 .btn-success-soft {
@@ -420,7 +530,7 @@ input.form-control {
   display: block;
 }
 .btn-success-soft.sml {
-  padding: 3px 10px;
+  padding: 5px 5px;
   font-size: 0.8rem;
   line-height: 0.8rem;
 }
@@ -456,11 +566,18 @@ input.form-control {
   box-shadow: 2px 2px 20px #ddd;
 }
 
+td img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 30px;
+  width: 30px;
+}
+
 .link {
   all: unset;
   cursor: pointer;
   font-weight: bold;
-  color: #4e28f7;
+  color: #66b032;
 }
 
 .dropdown-item {
@@ -480,7 +597,7 @@ input.form-control {
 }
 
 .bg-accent-color {
-  background-color: #e7ceff;
+  background-color: #e1ffcb;
 }
 
 .pinggiran-bunder {
@@ -538,18 +655,34 @@ input.form-control {
 
 .page-item.active .page-link {
   color: white !important;
-  background-color: #4e28f7 !important;
-  border-color: #4e28f7 !important;
+  background-color: #66b032 !important;
+  border-color: #66b032 !important;
 }
 
 .page-link {
   position: relative;
   display: block;
-  color: #4e28f7 !important;
+  color: #66b032 !important;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+tbody.select {
+  cursor: pointer;
+}
+
+table.dataTable > tbody.select > tr.selected > * {
+  box-shadow: inset 0 0 0 9999px #e1ffcb;
+  color: black;
+  cursor: default;
+}
+
+table.dataTable.table-striped > tbody.select > tr.odd.selected > * {
+  box-shadow: inset 0 0 0 9999px #e1ffcb;
+  color: black;
+  cursor: default;
 }
 
 .modal-title {
@@ -558,4 +691,30 @@ input.form-control {
 
 table {
   font-size: 0.8rem;
+}
+
+.form-floating {
+  position: relative;
+}
+
+textarea.form-floating:before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  /* border-width (default by BS) */
+  left: 1px;
+  /* border-width (default by BS) */
+  width: calc(100% - 14px);
+  /* to show scrollbar */
+  height: 32px;
+  border-radius: 4px;
+  /* (default by BS) */
+  background-color: #ffffff;
+}
+
+.form-floating textarea.form-control {
+  padding-top: 32px;
+  /* height of pseudo element */
+  min-height: 80px;
+  /* not relevant */
 }

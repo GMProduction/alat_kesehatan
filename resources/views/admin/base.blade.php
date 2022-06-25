@@ -18,6 +18,7 @@
     {{-- ICON --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('datatable/datatables.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('vitalets-bootstrap-datepicker/css/datepicker.css') }}" />
 
 </head>
 
@@ -104,8 +105,22 @@
                     </a>
                 </li>
 
+                
+                <li class="nav-item">
+                    <a class="nav-link menu @if ($sidebar == 'klinik') active @endif" href="/admin/klinik">
+                        <i class="material-icons menu-icon">emergency</i>
+                        <p class="menu-text">Klinik</p>
+                    </a>
+                </li>
 
-                <li class="nav-item has-submenu">
+                <li class="nav-item">
+                    <a class="nav-link menu @if ($sidebar == 'barang') active @endif" href="/admin/barang">
+                        <i class="material-icons menu-icon">content_paste</i>
+                        <p class="menu-text">Data Barang</p>
+                    </a>
+                </li>
+
+                {{-- <li class="nav-item has-submenu">
                     <a class="nav-link menu @if ($sidebar == 'master') active @endif" href="#">
                         <i class="material-icons menu-icon">content_paste</i>
                         <p class="menu-text">Master</p>
@@ -121,9 +136,16 @@
                             </a></li>
 
                     </ul>
+                </li> --}}
+
+                <li class="nav-item">
+                    <a class="nav-link menu @if ($sidebar == 'transaksi') active @endif" href="/admin/transaksi">
+                        <i class="material-icons menu-icon">sync</i>
+                        <p class="menu-text">Transaksi</p>
+                    </a>
                 </li>
 
-                <li class="nav-item has-submenu">
+                {{-- <li class="nav-item has-submenu">
                     <a class="nav-link menu" href="#">
                         <i class="material-icons menu-icon">sync</i>
                         <p class="menu-text">Transaksi</p>
@@ -139,7 +161,7 @@
                             </a></li>
 
                     </ul>
-                </li>
+                </li> --}}
 
                 <li class="nav-item has-submenu">
                     <a class="nav-link menu" href="#">
@@ -161,6 +183,27 @@
 
                     </ul>
                 </li>
+
+                {{-- <li class="nav-item has-submenu">
+                    <a class="nav-link menu" href="#">
+                        <i class="material-icons menu-icon">insights</i>
+                        <p class="menu-text">Laporan</p>
+                    </a>
+                    <ul class="submenu  collapse">
+                        <li><a class="nav-link menu" href="#"><i class="material-icons menu-icon">analytics</i>
+                                <p class="menu-text">Pesanan</p>
+                            </a></li>
+                        <li><a class="nav-link menu" href="#">
+                                <i class="material-icons menu-icon">insert_chart</i>
+                                <p class="menu-text">Pengeluaran</p>
+                            </a></li>
+                        <li><a class="nav-link menu" href="#">
+                                <i class="material-icons menu-icon">add_chart</i>
+                                <p class="menu-text">Pemasukan</p>
+                            </a></li>
+
+                    </ul>
+                </li> --}}
             </ul>
         </nav>
 
@@ -180,6 +223,8 @@
 
     <script src="{{ asset('js/base.js') }}"></script>
     <script type="text/javascript" src="{{ asset('datatable/datatables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('datatable/select.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vitalets-bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
 
     @yield('morejs')
 

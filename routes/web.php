@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\KlinikController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\MasterBarangController;
 use App\Http\Controllers\MasterPelangganController;
 use App\Http\Controllers\UserController;
@@ -35,6 +38,9 @@ Route::get('/admin/user', function () {
 Route::get('/admin', [BerandaController::class, 'index']);
 Route::get('/admin/beranda', [BerandaController::class, 'index']);
 Route::get('/admin/user', [UserController::class, 'index']);
+Route::get('/admin/klinik', [KlinikController::class, 'index']);
+Route::get('/admin/barang', [BarangController::class, 'index']);
+Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
 Route::get('/admin/masterbarang', [MasterBarangController::class, 'index']);
 Route::get('/admin/masterpelanggan', [MasterPelangganController::class, 'index']);
 

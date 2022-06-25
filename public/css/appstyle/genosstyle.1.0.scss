@@ -1,7 +1,10 @@
 //WARNA
-$primary-color: #4e28f7;
-$primary-soft-color1: #3c21b3;
-$background-primary-color: #e7ceff;
+$primary-color: #66b032;
+$primary-soft-color1: #7dd83c;
+$background-primary-color: #e1ffcb;
+
+$accent-color: #fb9802;
+$accent-color2: #db8400;
 
 $danger-color: #f72828;
 $danger-soft-color1: #be2d2d;
@@ -18,8 +21,6 @@ $shadow-primary-color: #4e28f766;
 $background-color: #ddd;
 $panel-color: #fff;
 $active-color: #fff;
-$accent-color: #ddd;
-$accent-color: #ddd;
 $font-grey1: #333;
 $font-grey2: #555;
 $font-grey3: #777;
@@ -40,7 +41,7 @@ body {
 }
 
 //LOGIN
-.login{
+.login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +56,6 @@ body {
     width: $panel-login;
     position: relative; /* or absolute */
     display: block;
-   
 }
 
 .logo-login {
@@ -167,20 +167,20 @@ input.form-control {
 }
 
 input.form-control {
-        display: block;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        color: #212529;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ddd;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border-radius: 0.25rem;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .sidebar {
@@ -417,8 +417,13 @@ input.form-control {
     cursor: pointer;
 
     &.sml {
-        padding: 3px 10px;
+        padding: 5px 5px;
         font-size: 0.8rem;
+        line-height: 0.8rem;
+
+        i {
+            font-size: 0.8rem;
+        }
     }
 
     &.rnd {
@@ -430,6 +435,86 @@ input.form-control {
         color: white;
 
         box-shadow: 2px 2px 20px $shadow-primary-color;
+    }
+}
+
+.btn-success {
+    all: unset;
+    transition: all 0.5s;
+    display: flex;
+    text-align: center;
+    border: none;
+    background-color: $success-color;
+    color: $success-color;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    align-items: center;
+    // box-shadow: 1px 1px 5px $shadow-primary-color;
+    cursor: pointer;
+
+    a {
+        display: block;
+    }
+
+    &.sml {
+        padding: 5px 5px;
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+
+        i {
+            font-size: 0.8rem;
+        }
+    }
+
+    &.rnd {
+        border-radius: 50px;
+    }
+
+    &:hover {
+        transition: all 0.5s;
+        // box-shadow: 2px 2px 20px $shadow-success-color;
+        color: $success-soft-color1;
+    }
+}
+
+.btn-danger {
+    all: unset;
+    transition: all 0.5s;
+    display: flex;
+    text-align: center;
+    border: none;
+    background-color: $danger-color;
+    color: $success-color;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    align-items: center;
+    // box-shadow: 1px 1px 5px $shadow-primary-color;
+    cursor: pointer;
+
+    a {
+        display: block;
+    }
+
+    &.sml {
+        padding: 5px 5px;
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+
+        i {
+            font-size: 0.8rem;
+        }
+    }
+
+    &.rnd {
+        border-radius: 50px;
+    }
+
+    &:hover {
+        transition: all 0.5s;
+        // box-shadow: 2px 2px 20px $shadow-success-color;
+        color: $success-soft-color1;
     }
 }
 
@@ -453,9 +538,13 @@ input.form-control {
     }
 
     &.sml {
-        padding: 3px 10px;
+        padding: 5px 5px;
         font-size: 0.8rem;
         line-height: 0.8rem;
+
+        i {
+            font-size: 0.8rem;
+        }
     }
 
     &.rnd {
@@ -489,9 +578,13 @@ input.form-control {
     }
 
     &.sml {
-        padding: 3px 10px;
+        padding: 5px 5px;
         font-size: 0.8rem;
         line-height: 0.8rem;
+
+        i {
+            font-size: 0.8rem;
+        }
     }
 
     &.rnd {
@@ -502,6 +595,47 @@ input.form-control {
         transition: all 0.5s;
         // box-shadow: 2px 2px 20px $shadow-danger-color;
         color: $danger-soft-color1;
+    }
+}
+
+.btn-accent {
+    all: unset;
+    transition: all 0.5s;
+    display: flex;
+    text-align: center;
+    border: none;
+    background-color: $accent-color;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    align-items: center;
+    // box-shadow: 1px 1px 5px $shadow-primary-color;
+    cursor: pointer;
+
+    a {
+        display: block;
+    }
+
+    &.sml {
+        padding: 5px 5px;
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+
+        i {
+            font-size: 0.8rem;
+        }
+    }
+
+    &.rnd {
+        border-radius: 50px;
+    }
+
+    &:hover {
+        transition: all 0.5s;
+        // box-shadow: 2px 2px 20px $shadow-danger-color;
+        color: white;
+        background-color: $accent-color2;
     }
 }
 
@@ -525,7 +659,7 @@ input.form-control {
     }
 
     &.sml {
-        padding: 3px 10px;
+        padding: 5px 5px;
         font-size: 0.8rem;
         line-height: 0.8rem;
     }
@@ -564,6 +698,14 @@ input.form-control {
         transition: all 0.5s;
         color: grey;
         box-shadow: 2px 2px 20px $font-grey6;
+    }
+}
+
+td {
+    img {
+        object-fit: cover;
+        height: 30px;
+        width: 30px;
     }
 }
 
@@ -668,13 +810,51 @@ input.form-control {
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+tbody.select {
+    cursor: pointer;
+}
+
+table.dataTable > tbody.select > tr.selected > * {
+    box-shadow: inset 0 0 0 9999px $background-primary-color;
+    color: black;
+    cursor: default;
+}
+
+table.dataTable.table-striped > tbody.select > tr.odd.selected > * {
+    box-shadow: inset 0 0 0 9999px $background-primary-color;
+    color: black;
+    cursor: default;
+}
+
 //MODAL
 .modal-title {
     font-size: 1rem;
 }
 
-
 //TABLES
-table{
+table {
     font-size: 00.8rem;
+}
+
+//FIX FLOATING TEXT
+.form-floating {
+    position: relative;
+    // max-width: 300px; /* not relevant */
+    // margin: 40px 20px; /* not relevant */
+}
+
+textarea.form-floating:before {
+    content: "";
+    position: absolute;
+    top: 1px; /* border-width (default by BS) */
+    left: 1px; /* border-width (default by BS) */
+    width: calc(100% - 14px); /* to show scrollbar */
+    height: 32px;
+    border-radius: 4px; /* (default by BS) */
+    background-color: #ffffff;
+}
+
+.form-floating textarea.form-control {
+    padding-top: 32px; /* height of pseudo element */
+    min-height: 80px; /* not relevant */
 }
