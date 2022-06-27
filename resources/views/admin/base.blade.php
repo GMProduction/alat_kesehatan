@@ -163,26 +163,26 @@
                     </ul>
                 </li> --}}
 
-                <li class="nav-item has-submenu">
-                    <a class="nav-link menu" href="#">
+                {{-- <li class="nav-item has-submenu">
+                    <a class="nav-link menu"  @if ($sidebar == 'laporanPesanan') active @endif href="/admin/transaksi" href="#">
                         <i class="material-icons menu-icon">insights</i>
                         <p class="menu-text">Laporan</p>
                     </a>
                     <ul class="submenu  collapse">
-                        <li><a class="nav-link menu" href="#"><i class="material-icons menu-icon">analytics</i>
+                        <li><a class="nav-link menu" href="/admin/laporanpesanan" @if ($sidebar == 'laporanPesanan') active @endif><i class="material-icons menu-icon">analytics</i>
                                 <p class="menu-text">Pesanan</p>
-                            </a></li>
-                        <li><a class="nav-link menu" href="#">
+                            </a></li> --}}
+                        {{-- <li><a class="nav-link menu" href="#">
                                 <i class="material-icons menu-icon">insert_chart</i>
                                 <p class="menu-text">Pengeluaran</p>
                             </a></li>
                         <li><a class="nav-link menu" href="#">
                                 <i class="material-icons menu-icon">add_chart</i>
                                 <p class="menu-text">Pemasukan</p>
-                            </a></li>
+                            </a></li> --}}
 
-                    </ul>
-                </li>
+                    {{-- </ul>
+                </li> --}}
 
                 {{-- <li class="nav-item has-submenu">
                     <a class="nav-link menu" href="#">

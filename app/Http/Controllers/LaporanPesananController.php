@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 
-class TransaksiController extends Controller
+class LaporanPesananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        return view('admin.transaksi', ['sidebar' => 'transaksi']);
+        return view('admin.laporanPesanan', ['sidebar' => 'laporanPesanan']);
     }
 
     /**
@@ -81,26 +80,5 @@ class TransaksiController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    // public function cetakLaporan($id)
-    // {
-    //     $pdf = App::make('dompdf.wrapper');
-    //     $pdf->loadHTML('<h1>Test</h1>');
-    //     return $pdf->stream();
-    // }
-
-    public function cetakLaporan($id)
-    {
-//        return $this->dataTransaksi();
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->dataTransaksi())->setPaper('f4', 'potrait');
-
-        return $pdf->stream();
-    }
-
-    public function dataTransaksi()
-    {
-        return view('admin/laporanpesanan')->with("");
     }
 }

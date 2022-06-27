@@ -58,8 +58,8 @@
 
                     <div class="title">
                         <p>Detail</p>
-                        {{-- <a class="btn-utama-soft  rnd ">Pesanan Baru <i
-                            class="material-icons menu-icon ms-2">add_circle</i></a> --}}
+                        <a class="btn-accent  rnd ">Cetak <i
+                            class="material-icons menu-icon ms-2">print</i></a>
 
                     </div>
 
@@ -150,7 +150,7 @@
                                         <td>5</td>
                                         <td class="d-flex ">
                                             <a class="btn-utama sml rnd me-1 d-flex justify-content-center"
-                                                data-bs-toggle="modal" data-bs-target="#modalChangeQty">Ganti Qty <i
+                                                data-bs-toggle="modal" data-bs-target="#modalChangeQty">Ganti Jumlah yang disetujui <i
                                                     class="material-icons menu-icon ms-2">info</i></a>
 
                                             <a class="btn-success sml rnd me-1 d-flex justify-content-center">Terima <i
@@ -158,20 +158,14 @@
 
                                             <a class="btn-danger sml rnd me-1 d-flex justify-content-center">Tolak <i
                                                     class="material-icons menu-icon ms-2">dangerous</i></a>
-
                                         </td>
                                     </tr>
-
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
         </div>
 
         <!-- Modal -->

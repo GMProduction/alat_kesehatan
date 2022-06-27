@@ -3,6 +3,7 @@
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KlinikController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\LaporanPesananController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
@@ -41,6 +42,8 @@ Route::get('/admin/user', [UserController::class, 'index']);
 Route::get('/admin/klinik', [KlinikController::class, 'index']);
 Route::get('/admin/barang', [BarangController::class, 'index']);
 Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
+Route::get('/admin/transaksi/cetak/{id}', [TransaksiController::class, 'cetakLaporan']);
+Route::get('/admin/laporanpesanan', [LaporanPesananController::class, 'index']);
 Route::get('/admin/masterbarang', [MasterBarangController::class, 'index']);
 Route::get('/admin/masterpelanggan', [MasterPelangganController::class, 'index']);
 
