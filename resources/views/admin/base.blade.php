@@ -19,11 +19,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('datatable/datatables.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('vitalets-bootstrap-datepicker/css/datepicker.css') }}" />
+    <script src="{{ asset('js/swal.js') }}"></script>
 
 </head>
 
 <body>
-
     <div class="header">
         <div class="header-panel-kiri">
             <a class="btn-icon " onclick="openNav()">
@@ -47,10 +47,9 @@
             </a>
 
             <ul class="dropdown-menu custom" aria-labelledby="dropdownprofile">
-                <li><a class="dropdown-item disabled" href="#">pradanamahendra@gmail.com</a></li>
+{{--                <li><a class="dropdown-item disabled" href="#">{{auth()->user()->nama}}</a></li>--}}
                 <hr>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
 
         </div>
@@ -105,7 +104,7 @@
                     </a>
                 </li>
 
-                
+
                 <li class="nav-item">
                     <a class="nav-link menu @if ($sidebar == 'klinik') active @endif" href="/admin/klinik">
                         <i class="material-icons menu-icon">emergency</i>
@@ -222,10 +221,27 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <script src="{{ asset('js/base.js') }}"></script>
+    <script src="{{ asset('js/dialog.js') }}"></script>
+    <script src="{{ asset('js/moment.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('datatable/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('datatable/select.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vitalets-bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-
+    <script>
+        jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+            return {
+                "iStart": oSettings._iDisplayStart,
+                "iEnd": oSettings.fnDisplayEnd(),
+                "iLength": oSettings._iDisplayLength,
+                "iTotal": oSettings.fnRecordsTotal(),
+                "iFilteredTotal": oSettings.fnRecordsDisplay(),
+                "iPage": oSettings._iDisplayLength === -1 ?
+                    0 : Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+                "iTotalPages": oSettings._iDisplayLength === -1 ?
+                    0 : Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+            };
+        };
+    </script>
     @yield('morejs')
 
 </body>

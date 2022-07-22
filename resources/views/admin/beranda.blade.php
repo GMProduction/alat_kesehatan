@@ -17,7 +17,7 @@
                                     <img src="{{ asset('images/local/warehouse.png') }}" />
                                     <div class="content">
                                         <p class="nama">Stok Barang</p>
-                                        <p class="nilai">1.245</p>
+                                        <p class="nilai">{{$barang}}</p>
                                         {{-- <p class="status">75% naik</p> --}}
                                     </div>
                                 </div>
@@ -28,7 +28,7 @@
                                     <img src="{{ asset('images/local/klinik.png') }}" />
                                     <div class="content">
                                         <p class="nama">Data Klinik</p>
-                                        <p class="nilai">7.5M</p>
+                                        <p class="nilai">{{$klinik}}</p>
                                         {{-- <p class="status">75% naik</p> --}}
                                     </div>
                                 </div>
@@ -42,7 +42,7 @@
                                         <p class="nilai">7.5M</p> --}}
                             {{-- <p class="status">75% naik</p> --}}
                             {{-- </div>
-                                </div>  
+                                </div>
                             </div> --}}
                         </div>
 
