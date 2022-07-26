@@ -48,10 +48,18 @@ Route::prefix('admin')->middleware('auth')->group(
                 Route::get('datatable/{id}', [BarangController::class, 'datatableDetail']);
             }
         );
+
+        Route::prefix('transaksi')->group(function (){
+            Route::match(['POST', 'GET'], '', [TransaksiController::class, 'index']);
+            Route::get('datatable', [TransaksiController::class, 'datatable']);
+            Route::get('datatable/{id}', [TransaksiController::class, 'datatableDetail']);
+            Route::post('keranjang/update-qty',[TransaksiController::class,'updateQty']);
+            Route::post('keranjang/update-status',[TransaksiController::class,'updateStatus']);
+            Route::post('keranjang/konfirmasi',[TransaksiController::class,'konfirmasi']);
+        });
     }
 );
 
-Route::get('/admin/transaksi', [TransaksiController::class, 'index']);
 Route::get('/admin/transaksi/cetak/{id}', [TransaksiController::class, 'cetakLaporan']);
 Route::get('/admin/laporanpesanan', [LaporanPesananController::class, 'index']);
 Route::get('/admin/masterbarang', [MasterBarangController::class, 'index']);

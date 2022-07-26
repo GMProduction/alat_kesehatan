@@ -15,12 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'username' => 'admin',
-            'nama' => 'admin',
-            'role'    => 'admin',
-            'password' => Hash::make('admin'),
-        ]);
+        $user = User::create(
+//            [
+//            'username' => 'admin',
+//            'nama' => 'admin',
+//            'role'    => 'admin',
+//            'password' => Hash::make('admin'),
+//        ],
+            [
+                'username' => 'pimpinan',
+                'nama' => 'pimpinan',
+                'role'    => 'pimpinan',
+                'password' => Hash::make('pimpinan'),
+            ]
+        );
 
     }
 }

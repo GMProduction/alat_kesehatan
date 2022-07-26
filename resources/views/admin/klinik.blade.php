@@ -180,7 +180,7 @@
                     $('.textForm').val('');
                     if (row) {
                         $.each(row, function (v, k) {
-                                if (typeof row[v] === 'object') {
+                            if (row[v] && typeof row[v] === 'object') {
                                     $.each(row[v], function (val, key) {
                                         if (val != 'id'){
                                             $('#' + [val]).val(row[v][val])

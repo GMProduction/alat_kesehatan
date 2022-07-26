@@ -2,11 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Keranjang;
+use App\Models\Stok;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Yajra\DataTables\Facades\DataTables;
 
 class TransaksiController extends Controller
 {
+
+    function datatable()
+    {
+        return DataTables::of(Transaksi::query())->make(true);
+    }
+
+    function datatableDetail($id)
+    {
+        $transaksi = Keranjang::with('barang')->where('transaksi_id', '=', $id)->get();
+
+        return DataTables::of($transaksi)->make(true);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,70 +34,30 @@ class TransaksiController extends Controller
         return view('admin.transaksi', ['sidebar' => 'transaksi']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function updateQty()
     {
-        //
+        $keranjang = Keranjang::find(\request('id'));
+        $keranjang->update(
+            [
+                'qty_disetujui' => \request('qty_diterima'),
+            ]
+        );
+
+        return 'berhasil';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function updateStatus()
     {
-        //
-    }
+        $keranjang = Keranjang::find(\request('id'));
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $keranjang->update(
+            [
+                'status' => \request('status'),
+            ]
+        );
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        return 'berhasil';
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     // public function cetakLaporan($id)
@@ -103,4 +80,66 @@ class TransaksiController extends Controller
     {
         return view('admin/laporanpesanan')->with("");
     }
+
+    public function konfirmasi()
+    {
+        $cart = Keranjang::with('barang')->where([['transaksi_id', '=', \request('id')],['status','=',0]])->get();
+        if (count($cart) > 0){
+            return response()->json(
+                [
+                    'msg' => 'Silahkan konfirmasi keranjang',
+                ],
+                202
+            );
+        }
+        $cart       = Keranjang::with('barang')->where([['transaksi_id', '=', \request('id')],['status','=',1]])->get();
+
+        foreach ($cart as $key => $c) {
+            $stok = Stok::where('barang_id', '=', $c->barang_id)->orderBy('tanggal_expired', 'ASC')->get();
+            $sisaKeluar = 0;
+            $keluar = $c->qty_disetujui;
+            $hasilStok = 0;
+            $stokBarang = $c->barang->qty;
+            $hasilStok = $stokBarang - $keluar;
+            foreach ($stok as $s) {
+                $sisa   = $s->qty;
+                if ($sisaKeluar == 0){
+                    if ($sisa >= $keluar) {
+                        $hasil = $sisa - $keluar;
+                        $s->update([
+                            'qty' => $hasil
+                        ]);
+                    }else{
+                        $sisaKeluar = $sisa % $keluar;
+
+                        $s->update([
+                            'qty' => 0
+                        ]);
+                    }
+                }else{
+                    if ($sisa >= $sisaKeluar){
+                        $hasil = $sisa - $sisaKeluar;
+                        $s->update([
+                            'qty' => $hasil
+                        ]);
+                    }else{
+                        $sisaKeluar = $sisa % $sisaKeluar;
+                        $s->update([
+                            'qty' => 0
+                        ]);
+                    }
+                }
+            }
+            $c->barang()->update([
+                'qty' => $hasilStok,
+            ]);
+        }
+
+        $trans = Transaksi::find(\request('id'));
+        $trans->update([
+            'status' => 1
+        ]);
+        return 'berhasil';
+    }
+
 }

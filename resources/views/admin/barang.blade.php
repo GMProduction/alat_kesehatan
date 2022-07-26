@@ -121,8 +121,8 @@
                     </div>
                     <form id="formStok" onsubmit="return createStock()">
                         @csrf
-                        <input id="id" name="id" class="textForm"/>
-                        <input id="barang_id" name="barang_id"/>
+                        <input id="id" name="id" class="textForm" hidden/>
+                        <input id="barang_id" name="barang_id" hidden/>
                         <div class="modal-body">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control textForm" id="qty" name="qty" placeholder="qty">
@@ -225,8 +225,8 @@
                                         "' id='editBarang'> <i class='material-icons menu-icon'>edit</i></a>" +
                                         "<a class='btn-danger-soft sml rnd me-2' data-id='" +
                                         data + "' data-name='" + row.nama_barang + "' id='deleteData'> <i class='material-icons menu-icon'>delete</i></a>" +
-                                        "<a class='btn-danger-soft sml rnd me-2' data-id='" +
-                                        data + "' data-name='" + row.nama_barang + "' id='editStok'> <i class='material-icons menu-icon'>delete</i></a>" +
+                                        "<a class='btn-accent sml rnd me-2' data-id='" +
+                                        data + "' data-name='" + row.nama_barang + "' id='editStok'> <i class='material-icons menu-icon'>remove_red_eye</i></a>" +
                                         "</div>";
                                 }
                             },

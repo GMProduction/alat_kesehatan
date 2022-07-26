@@ -142,7 +142,7 @@ function saveDataObjectFormData(title, form_data, url, resposeSuccess) {
                         console.log(xhr.status);
                         console.log(textStatus);
                         console.log(error.responseJSON);
-                        swal(JSON.parse(error.responseText).errors ? JSON.parse(error.responseText).errors[Object.keys(JSON.parse(error.responseText).errors)[0]][0] : JSON.parse(error.responseText)?.message ? JSON.parse(error.responseText).message : error.responseJSON['msg'] )
+                        swal(JSON.parse(error.responseText).errors ? JSON.parse(error.responseText).errors[Object.keys(JSON.parse(error.responseText).errors)[0]][0] : JSON.parse(error.responseText)?.message ? JSON.parse(error.responseText).message : error.responseJSON?.msg ?? textStatus  )
 
                         // swal(error.responseJSON.errors ? error.responseJSON.errors[Object.keys(error.responseJSON.errors)[0]][0] : error.responseJSON['message'] ? error.responseJSON['message'] : error.responseJSON['msg'] )
 
