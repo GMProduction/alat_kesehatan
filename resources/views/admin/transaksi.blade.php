@@ -1,5 +1,8 @@
 @extends('admin.base')
 
+@section('title')
+Transaksi
+@endsection
 @section('content')
     <div>
 
@@ -30,7 +33,8 @@
                                 <tbody class="select">
                                     <tr>
                                         <td>1</td>
-                                        <td>Klinik Anak Pak Joko</td>
+                                        <td>Puskesmas Manisrenggo
+                                        </td>
                                         <td>12 Juni 2022</td>
                                         {{-- <td>Pesan banyak</td> --}}
                                         <td>2011-04-25</td>
@@ -70,7 +74,7 @@
 
                                 <div class="form-floating mb-1">
                                     <input type="text" class="form-control" id="dt_tanggal" name="dt_tanggal" disabled
-                                        placeholder="no_hp">
+                                        placeholder="no_hp" value="12 Juni 2022">
                                     <label for="dt_tanggal" class="form-label">Tanggal</label>
                                 </div>
 
@@ -84,7 +88,8 @@
                                 <p class="fw-bold">Data Klinik</p>
                                 <div class="form-floating mb-1">
                                     <input type="text" class="form-control" id="dk_namaklinik" disabled
-                                        name="dk_namaklinik" placeholder="Klinik">
+                                        name="dk_namaklinik" placeholder="Klinik" value="Puskesmas Manisrenggo
+                                        ">
                                     <label for="dk_namaklinik" class="form-label">Nama Klinik</label>
                                 </div>
 
@@ -144,10 +149,28 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Bed</td>
+                                        <td>IUD Coper T</td>
                                         <td>5</td>
                                         <td>Pending</td>
                                         <td>5</td>
+                                        <td class="d-flex ">
+                                            <a class="btn-utama sml rnd me-1 d-flex justify-content-center"
+                                                data-bs-toggle="modal" data-bs-target="#modalChangeQty">Ganti Jumlah yang disetujui <i
+                                                    class="material-icons menu-icon ms-2">info</i></a>
+
+                                            <a class="btn-success sml rnd me-1 d-flex justify-content-center">Terima <i
+                                                    class="material-icons menu-icon ms-2">check_circle</i></a>
+
+                                            <a class="btn-danger sml rnd me-1 d-flex justify-content-center">Tolak <i
+                                                    class="material-icons menu-icon ms-2">dangerous</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Implant</td>
+                                        <td>3</td>
+                                        <td>Pending</td>
+                                        <td>3</td>
                                         <td class="d-flex ">
                                             <a class="btn-utama sml rnd me-1 d-flex justify-content-center"
                                                 data-bs-toggle="modal" data-bs-target="#modalChangeQty">Ganti Jumlah yang disetujui <i
@@ -232,14 +255,14 @@
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="qty_diminta" name="qty_diminta"
-                                placeholder="qty_diminta" disabled>
+                                placeholder="qty_diminta" disabled value="5">
                             <label for="qty_diminta" class="form-label">Jumlah yang diminta</label>
                         </div>
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="qty_diterima" name="qty_diterima"
-                                placeholder="qty_diterima">
-                            <label for="qty_diterima" class="form-label">Jumlah yang disetujui</label>
+                                placeholder="qty_diterima" value="3">
+                            <label for="qty_diterima" class="form-label" >Jumlah yang disetujui</label>
                         </div>
 
 

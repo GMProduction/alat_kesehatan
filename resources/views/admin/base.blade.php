@@ -32,12 +32,12 @@
             </a>
 
             <p class="title">
-                Nama Perusahaan
+                Dinas Sosial, Pemberdayaan Perempuan dan Perlindungan Anak
             </p>
         </div>
 
         <p class="text-title text-center">
-            Beranda
+            @yield('title')
         </p>
 
         <div class="header-panel-kanan">
@@ -105,7 +105,7 @@
                     </a>
                 </li>
 
-                
+
                 <li class="nav-item">
                     <a class="nav-link menu @if ($sidebar == 'klinik') active @endif" href="/admin/klinik">
                         <i class="material-icons menu-icon">emergency</i>
