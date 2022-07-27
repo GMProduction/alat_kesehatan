@@ -29,7 +29,7 @@ Route::prefix('admin')->middleware('auth')->group(
         Route::get(
             '',[BerandaController::class,'index']
         );
-        Route::prefix('user')->group(
+        Route::prefix('user')->middleware(\App\Http\Middleware\PimpinanMiddleware::class)->group(
             function () {
                 Route::match(['POST', 'GET'], '', [UserController::class, 'index']);
                 Route::get('datatable', [UserController::class, 'datatable']);
@@ -65,6 +65,6 @@ Route::get('/admin/laporanpesanan', [LaporanPesananController::class, 'index']);
 Route::get('/admin/masterbarang', [MasterBarangController::class, 'index']);
 Route::get('/admin/masterpelanggan', [MasterPelangganController::class, 'index']);
 
-Route::match(['POST','GET'],'/', [LoginController::class, 'index'])->name('login');
+Route::match(['POST','GET'],'/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout']);
 Route::post('/daftar', [DaftarController::class, 'store']);
