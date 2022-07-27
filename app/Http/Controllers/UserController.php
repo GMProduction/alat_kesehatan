@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
+
+    function datatable()
+    {
+        return DataTables::of(User::where('role','!=','klinik')->get())->make(true);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,23 +23,63 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (\request()->isMethod('POST')) {
+            return $this->create();
+        }
+
         return view('admin.user', ['sidebar' => 'user']);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return array|string
      */
     public function create()
     {
         //
+        $field = \request()->validate(
+            [
+                'nama'     => 'required',
+                'username' => 'required',
+                'password' => 'required|confirmed',
+                'role'     => 'required',
+            ]
+        );
+
+        if (\request('id')) {
+            $cekUsername = User::where([['username', '=', \request('username')], ['id', '!=', \request('id')]])->first();
+            if ($cekUsername) {
+                return \request()->validate(
+                    [
+                        'username' => 'required|string|unique:users,username',
+                    ]
+                );
+            }
+            if (strpos($field['password'], '*') === false) {
+                $password = Hash::make($field['password']);
+                Arr::set($field, 'password', $password);
+            }
+            $user = User::find(\request('id'));
+            $user->update($field);
+        } else {
+            \request()->validate(
+                [
+                    'username' => 'required|string|unique:users,username',
+                ]
+            );
+            $user     = new User();
+            $password = Hash::make($field['password']);
+            Arr::set($field, 'password', $password);
+            $user->create($field);
+        }
+
+        return 'berhasil';
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,7 +90,8 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +102,8 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +114,9 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +127,8 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -4,7 +4,7 @@
 Transaksi
 @endsection
 @section('content')
-    <div>
+    <div> 
 
         <div class="row">
             <div class="col-4">
@@ -21,32 +21,16 @@ Transaksi
                         <div class="table">
                             <table id="table_id" class="table table-striped" style="width:100%">
                                 <thead>
-                                    <tr>
-                                        <th>No Transaksi</th>
-                                        <th>Nama Klinik</th>
-                                        <th>Tanggal</th>
-                                        {{-- <th>Catatan</th> --}}
-                                        <th>Status Pesanan</th>
-                                        {{-- <th>Action</th> --}}
-                                    </tr>
+                                <tr>
+                                    <th>No Transaksi</th>
+                                    <th>Nama Klinik</th>
+                                    <th>Tanggal</th>
+                                    {{-- <th>Catatan</th> --}}
+                                    <th>Status Pesanan</th>
+                                     <th>Action</th>
+                                </tr>
                                 </thead>
                                 <tbody class="select">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Puskesmas Manisrenggo
-                                        </td>
-                                        <td>12 Juni 2022</td>
-                                        {{-- <td>Pesan banyak</td> --}}
-                                        <td>2011-04-25</td>
-                                        {{-- <td class="d-flex ">
-                                            <a class="btn-utama sml rnd me-1 d-flex justify-content-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailTransaksi">Detail <i
-                                                    class="material-icons menu-icon ms-2">info</i></a>
-
-
-                                        </td> --}}
-                                    </tr>
-
                                 </tbody>
 
                             </table>
@@ -63,7 +47,7 @@ Transaksi
                     <div class="title">
                         <p>Detail</p>
                         <a class="btn-accent  rnd ">Cetak <i
-                            class="material-icons menu-icon ms-2">print</i></a>
+                                class="material-icons menu-icon ms-2">print</i></a>
 
                     </div>
 
@@ -74,13 +58,13 @@ Transaksi
 
                                 <div class="form-floating mb-1">
                                     <input type="text" class="form-control" id="dt_tanggal" name="dt_tanggal" disabled
-                                        placeholder="no_hp" value="12 Juni 2022">
+                                           placeholder="no_hp">
                                     <label for="dt_tanggal" class="form-label">Tanggal</label>
                                 </div>
 
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="dt_alamat" disabled style="height: 100px"></textarea>
-                                    <label for="dt_alamat">Catatan</label>
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="dt_catatan" disabled style="height: 100px"></textarea>
+                                    <label for="dt_catatan">Catatan</label>
                                 </div>
 
                             </div>
@@ -88,8 +72,7 @@ Transaksi
                                 <p class="fw-bold">Data Klinik</p>
                                 <div class="form-floating mb-1">
                                     <input type="text" class="form-control" id="dk_namaklinik" disabled
-                                        name="dk_namaklinik" placeholder="Klinik" value="Puskesmas Manisrenggo
-                                        ">
+                                           name="dk_namaklinik" placeholder="Klinik">
                                     <label for="dk_namaklinik" class="form-label">Nama Klinik</label>
                                 </div>
 
@@ -97,8 +80,6 @@ Transaksi
                                     <textarea class="form-control" placeholder="Leave a comment here" id="dk_alamat" disabled style="height: 100px"></textarea>
                                     <label for="dk_alamat">Alamat</label>
                                 </div>
-
-
 
 
                             </div>
@@ -109,13 +90,13 @@ Transaksi
 
                                 <div class="form-floating mb-1">
                                     <input type="text" class="form-control" id="dk_username" name="dk_username" disabled
-                                        placeholder="Klinik">
+                                           placeholder="Klinik">
                                     <label for="dk_username" class="form-label">Username</label>
                                 </div>
 
                                 <div class="form-floating mb-1">
                                     <input type="text" class="form-control" id="dk_nohpklinik" name="dk_nohpklinik"
-                                        disabled placeholder="no_hp">
+                                           disabled placeholder="no_hp">
                                     <label for="dk_nohpklinik" class="form-label">No Hp</label>
                                 </div>
 
@@ -137,55 +118,20 @@ Transaksi
                         <div class="table">
                             <table id="table_detail" class="table table-striped" style="width:100%">
                                 <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nama Barang</th>
-                                        <th>Jumlah</th>
-                                        <th>Status</th>
-                                        <th>Qty disetujui</th>
-                                        <th>Action</th>
-                                    </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Barang</th>
+                                    <th>Jumlah</th>
+                                    <th>Status</th>
+                                    <th>Qty disetujui</th>
+                                    <th>Action</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>IUD Coper T</td>
-                                        <td>5</td>
-                                        <td>Pending</td>
-                                        <td>5</td>
-                                        <td class="d-flex ">
-                                            <a class="btn-utama sml rnd me-1 d-flex justify-content-center"
-                                                data-bs-toggle="modal" data-bs-target="#modalChangeQty">Ganti Jumlah yang disetujui <i
-                                                    class="material-icons menu-icon ms-2">info</i></a>
-
-                                            <a class="btn-success sml rnd me-1 d-flex justify-content-center">Terima <i
-                                                    class="material-icons menu-icon ms-2">check_circle</i></a>
-
-                                            <a class="btn-danger sml rnd me-1 d-flex justify-content-center">Tolak <i
-                                                    class="material-icons menu-icon ms-2">dangerous</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Implant</td>
-                                        <td>3</td>
-                                        <td>Pending</td>
-                                        <td>3</td>
-                                        <td class="d-flex ">
-                                            <a class="btn-utama sml rnd me-1 d-flex justify-content-center"
-                                                data-bs-toggle="modal" data-bs-target="#modalChangeQty">Ganti Jumlah yang disetujui <i
-                                                    class="material-icons menu-icon ms-2">info</i></a>
-
-                                            <a class="btn-success sml rnd me-1 d-flex justify-content-center">Terima <i
-                                                    class="material-icons menu-icon ms-2">check_circle</i></a>
-
-                                            <a class="btn-danger sml rnd me-1 d-flex justify-content-center">Tolak <i
-                                                    class="material-icons menu-icon ms-2">dangerous</i></a>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <a id="btnSimpan" class="btn-success-soft rnd d-none" style="justify-content: center">Simpan</a>
                     </div>
                 </div>
             </div>
@@ -204,7 +150,7 @@ Transaksi
 
                         <label for="role" class="form-label">Role</label>
                         <select class="form-select mb-3" aria-label="Default select example" id="role"
-                            name="role">
+                                name="role">
                             <option selected>Pilih Role</option>
                             <option value="admin">Admin</option>
                             <option value="pimpinan">Pimpinan</option>
@@ -213,17 +159,17 @@ Transaksi
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="nama" name="username"
-                                placeholder="Jhony">
+                                   placeholder="Jhony">
                             <label for="nama" class="form-label">Username</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="password" class="form-control " id="password" name="password"
-                                placeholder="Jhony">
+                                   placeholder="Jhony">
                             <label for="password" class="form-label">Password</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="password" class="form-control " id="password_confirmation"
-                                name="password_confirmation" placeholder="Jhony">
+                                   name="password_confirmation" placeholder="Jhony">
                             <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                         </div>
 
@@ -251,31 +197,32 @@ Transaksi
                         <h5 class="modal-title" id="titlemodalChangeQty">Ganti Jumlah yang disetujui</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="qty_diminta" name="qty_diminta"
-                                placeholder="qty_diminta" disabled value="5">
-                            <label for="qty_diminta" class="form-label">Jumlah yang diminta</label>
+                    <form id="formQty" onsubmit="return updateQty()">
+                        @csrf
+                        <input  name="id" id="id" hidden>
+                        <div class="modal-body">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="qty_diminta" name="qty_diminta"
+                                       placeholder="qty_diminta" disabled>
+                                <label for="qty_diminta" class="form-label">Jumlah yang diminta</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="qty_tersedia" name="qty_tersedia"
+                                        disabled>
+                                <label for="qty_tersedia" class="form-label">Sisa stok tersedia</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="qty_diterima" name="qty_diterima"
+                                       placeholder="qty_diterima">
+                                <label for="qty_diterima" class="form-label">Jumlah yang disetujui</label>
+                            </div>
                         </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="qty_diterima" name="qty_diterima"
-                                placeholder="qty_diterima" value="3">
-                            <label for="qty_diterima" class="form-label" >Jumlah yang disetujui</label>
+                        <div class=" m-3">
+                            <div class="text-center">
+                                <button type="submit" class="btn-utama">Simpan</button>
+                            </div>
                         </div>
-
-
-                    </div>
-
-                    <div class=" m-3">
-
-                        <div class="text-center">
-                            <a class="btn-utama">Simpan</a>
-                        </div>
-
-
-                    </div>
+                    </form>
 
                 </div>
             </div>
@@ -287,19 +234,212 @@ Transaksi
     <script src="{{ asset('js/number_formater.js') }}"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#table_id').DataTable({
-                select: {
-                    style: 'single'
-                }
-            });
+        let idTrans;
+        $(document).ready(function () {
 
-            $('#table_detail').DataTable();
+            datatableTransaksi();
         });
+
+        function datatableTransaksi() {
+            var url = window.location.pathname + '/datatable';
+            $('#table_id').DataTable({
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: url,
+                // "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                //     // debugger;
+                //     var numStart = this.fnPagingInfo().iStart;
+                //     var index = numStart + iDisplayIndexFull + 1;
+                //     // var index = iDisplayIndexFull + 1;
+                //     $("td:first", nRow).html(index);
+                //     return nRow;
+                // },
+                columns: [
+                    {
+                        "data": "id",
+                        "name": "id"
+                    },
+                    {
+                        "data": "user.klinik.nama_klinik",
+                        "name": "user.klinik.nama_klinik"
+                    },
+                    {
+                        "data": "tanggal",
+                        "name": "tanggal"
+                    },
+                    {
+                        "data": "status",
+                        "name": "status",
+                        "render": function (data) {
+                            return data == 1 ? 'Diterima' : 'Menunggu';
+                        }
+                    },
+                    {
+                        "data": "id",
+                        "render": function (data, type, row) {
+                            let string = JSON.stringify(row);
+                            return "<div class='d-flex'>\n" +
+                                "<a class='btn-success-soft sml rnd me-2' data-id='" +
+                                data + "' data-row='" + string +
+                                "' id='checkData'> <i class='material-icons menu-icon'>remove_red_eye</i></a>" +
+                                "</div>";
+                        }
+                    },
+                ]
+            });
+        }
+
+        $(document).on('click', '#checkData', function () {
+            let row = $(this).data('row');
+            console.log(row);
+            $('#dt_tanggal').val(row.tanggal);
+            $('#dt_catatan').val(row.keterangan);
+            $('#dk_namaklinik').val(row.user.klinik.nama_klinik);
+            $('#dk_alamat').val(row.user.klinik.alamat);
+            $('#dk_username').val(row.user.username);
+            $('#dk_nohpklinik').val(row.user.klinik.no_hp);
+            $('#btnSimpan').addClass('d-none');
+            if (row.status == 0){
+                $('#btnSimpan').removeClass('d-none');
+            }
+            idTrans = row.id;
+            datatableDetail(idTrans);
+        })
+
+        function datatableDetail(id) {
+            var url = window.location.pathname + '/datatable/'+id;
+            $('#table_detail').DataTable({
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: url,
+                "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                    // debugger;
+                    var numStart = this.fnPagingInfo().iStart;
+                    var index = numStart + iDisplayIndexFull + 1;
+                    // var index = iDisplayIndexFull + 1;
+                    $("td:first", nRow).html(index);
+                    return nRow;
+                },
+                columns: [
+                    {
+                        "className": '',
+                        "orderable": false,
+                        "defaultContent": ''
+                    },
+                    {
+                        "data": "barang.nama_barang",
+                        "name": "barang.nama_barang"
+                    },
+                    {
+                        "data": "qty",
+                        "name": "qty"
+                    },
+                    {
+                        "data": "status",
+                        "name": "status",
+                        "render": function (data) {
+                            return data == 1 ? 'Diterima' : data == 2 ? 'Ditolak' : 'Menunggu'
+                        }
+                    },
+                    {
+                        "data": "qty_disetujui",
+                        "name": "qty_disetujui"
+                    },
+                    {
+                        "data": "id",
+                        "render": function (data, type, row) {
+                            let string = JSON.stringify(row);
+                            let btn = '<span>Selesai</span>';
+                            if (row.status == 0){
+                                btn =  " <a class='btn-utama sml rnd me-1 d-flex justify-content-center' id='gantiQty' data-stok='"+row.barang.qty+"' data-id='"+data+"' data-qty='"+row.qty+"'>Ganti Jumlah yang disetujui <i\n" +
+                                    "                                                class='material-icons menu-icon ms-2'>info</i></a>\n" +
+                                    "\n" +
+                                    "                                        <a class='btn-success sml rnd me-1 d-flex justify-content-center' data-qty='"+row.qty_disetujui+"' onclick='updateStatus(this,"+row.id+",1)'>Terima <i\n" +
+                                    "                                                class='material-icons menu-icon ms-2'>check_circle</i></a>\n" +
+                                    "\n" +
+                                    "                                        <a class='btn-danger sml rnd me-1 d-flex justify-content-center' data-qty='"+row.qty_disetujui+"'  onclick='updateStatus(this,"+row.id+",2)'>Tolak <i\n" +
+                                    "                                                class='material-icons menu-icon ms-2'>dangerous</i></a>"
+                            }
+                            return "<div class='d-flex'>" + btn +
+                                "</div>";
+                        }
+                    },
+                ]
+            });
+        }
+
+        $(document).on('click','#btnSimpan', function () {
+            let form = {
+                '_token': '{{csrf_token()}}',
+                'id': idTrans
+            }
+            saveDataObjectFormData('Konfirmasi pemesanan',form, window.location.pathname+'/keranjang/konfirmasi',afterConfirm);
+            return false;
+        })
+
+        function afterConfirm(){
+            datatableTransaksi();
+            $('#btnSimpan').addClass('d-none');
+
+        }
+
+        $(document).on('click','#gantiQty', function () {
+            $('#modalChangeQty #qty_diminta').val($(this).data('qty'));
+            $('#modalChangeQty #qty_diterima').val(0);
+            $('#modalChangeQty #qty_tersedia').val($(this).data('stok'));
+            $('#modalChangeQty #id').val($(this).data('id'));
+            $('#modalChangeQty').modal('show');
+        })
+
+        function updateQty() {
+            let stok = $('#formQty #qty_tersedia').val();
+            let qty = $('#formQty #qty_diterima').val();
+            console.log(stok);
+            console.log(qty);
+            if (parseInt(stok) < parseInt(qty)){
+                swal("Jumlah stok tidak cukup ", {
+                    icon: "info",
+                    // buttons: false,
+                    timer: 1000
+                });
+                return false;
+            }
+            saveData('Update data','formQty',window.location.pathname+'/keranjang/update-qty',afterUpdate)
+            return false;
+        }
+
+        function afterUpdate() {
+            datatableDetail(idTrans);
+            $('#modalChangeQty').modal('hide');
+        }
+
+        function updateStatus(a,id, status) {
+            let text = 'Terima';
+            if (status == 2){
+                text = 'Tolak';
+            }
+            if ($(a).data('qty') == 0){
+                swal("Silahkan masukkan qty yang disetujui ", {
+                    icon: "info",
+                    // buttons: false,
+                    timer: 1000
+                });
+                return false;
+            }
+            let form = {
+                '_token' : '{{csrf_token()}}',
+                'id' : id,
+                'status': status
+            };
+            saveDataObjectFormData(text+' Pesanan',form, window.location.pathname+'/keranjang/update-status', afterUpdate);
+            return false;
+        }
     </script>
-@endsection
+    @endsection
 
 
-</body>
+    </body>
 
-</html>
+    </html>

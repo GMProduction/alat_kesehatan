@@ -4,40 +4,28 @@
     <div>
 
 
-
         <div class="panel">
             <div class="title">
                 <p>Data Klinik</p>
-                <a class="btn-utama-soft  rnd " data-bs-toggle="modal" data-bs-target="#modaltambahuser">Klinik Baru <i
+                <a class="btn-utama-soft  rnd " id="addData">Klinik Baru <i
                         class="material-icons menu-icon ms-2">add_circle</i></a>
             </div>
 
             <div class="isi">
                 <div class="table">
-                    <table id="table_piutang" class="table table-striped" style="width:100%">
+                    <table id="table_id" class="table table-striped" style="width:100%">
                         <thead>
-                            <tr>
-                                <th>Nama Klinik</th>
-                                <th>Alamat</th>
-                                <th>No Hp</th>
-                                <th>Username</th>
-                                <th>Action</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama Klinik</th>
+                            <th>Alamat</th>
+                            <th>No Hp</th>
+{{--                            <th>Nama</th>--}}
+                            <th>Username</th>
+                            <th>Action</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Klinik Anak Pak Agus</td>
-                                <td>Jl. jl men</td>
-                                <td>089 750 505 20</td>
-                                <td>agus</td>
-                                <td class="d-flex">
-                                    <a class="btn-success sml rnd me-1">Edit <i
-                                            class="material-icons menu-icon ms-2">edit</i></a>
-                                    <a class="btn-danger sml rnd ">Hapus <i
-                                            class="material-icons menu-icon ms-2">delete</i></a>
-                                </td>
-                            </tr>
-                           
 
                         </tbody>
 
@@ -55,76 +43,173 @@
                         <h5 class="modal-title" id="modaltambahuser">Tambah Klinik</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <form id="form" onsubmit="return createData()">
+                        @csrf
+                        <input id="id" name="id" class="textForm" hidden >
+                        <div class="modal-body">
 
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Jhony">
-                            <label for="nama" class="form-label">Nama Klinik</label>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control textForm" id="nama_klinik" name="nama_klinik" placeholder="Jhony">
+                                <label for="nama_klinik" class="form-label">Nama Klinik</label>
+                            </div>
+
+                            {{-- <label for="role" class="form-label">Role</label>
+                            <select class="form-select mb-3" aria-label="Default select example" id="role" name="role">
+                                <option selected>Pilih Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select> --}}
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control textForm " id="no_hp" name="no_hp" required placeholder="08712345678">
+                                <label for="no_hp" class="form-label">No. Hp</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="alamat" class="form-control textForm" id="alamat" name="alamat" required
+                                       placeholder="alamat">
+                                <label for="floatingInput">Alamat</label>
+                            </div>
+
+                            <hr>
+{{--                            <div class="form-floating mb-3">--}}
+{{--                                <input type="text" class="form-control textForm" id="nama" name="nama" placeholder="Jhony">--}}
+{{--                                <label for="nama" class="form-label">Nama</label>--}}
+{{--                            </div>--}}
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control textForm" id="username" name="username" placeholder="Jhony">
+                                <label for="username" class="form-label">Username</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control textForm " id="password" name="password" placeholder="Jhony">
+                                <label for="password" class="form-label">Password</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control textForm " id="password_confirmation"
+                                       name="password_confirmation" placeholder="Jhony">
+                                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                            </div>
+
+
                         </div>
 
-                        {{-- <label for="role" class="form-label">Role</label>
-                        <select class="form-select mb-3" aria-label="Default select example" id="role" name="role">
-                            <option selected>Pilih Role</option>
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
-                        </select> --}}
+                        <div class=" m-3">
 
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control " id="nohp" name="nohp" placeholder="08712345678">
-                            <label for="nohp" class="form-label">No. Hp</label>
+                            <div class="text-center">
+                                <button type="submit" class="btn-utama">Simpan</button>
+                            </div>
+
+
                         </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="alamat" class="form-control" id="alamat" name="alamat"
-                                placeholder="alamat">
-                            <label for="floatingInput">Alamat</label>
-                        </div>
-
-                        <hr>
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nama" name="username" placeholder="Jhony">
-                            <label for="nama" class="form-label">Username</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control " id="password" name="password" placeholder="Jhony">
-                            <label for="password" class="form-label">Password</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control " id="password_confirmation"
-                                name="password_confirmation" placeholder="Jhony">
-                            <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                        </div>
-
-
-                    </div>
-
-                    <div class=" m-3">
-
-                        <div class="text-center">
-                            <a class="btn-utama">Simpan</a>
-                        </div>
-
-
-                    </div>
+                    </form>
 
                 </div>
             </div>
         </div>
-    @endsection
+        @endsection
 
-    @section('morejs')
-        <script src="{{ asset('js/number_formater.js') }}"></script>
+        @section('morejs')
+            <script src="{{ asset('js/number_formater.js') }}"></script>
 
-        <script>
-            $(document).ready(function() {
-                $('#table_id').DataTable();
-                $('#table_piutang').DataTable();
-            });
-        </script>
-    @endsection
+            <script>
+                $(document).ready(function () {
+                    datatable();
+                });
+
+                function datatable() {
+                    var url = window.location.pathname + '/datatable';
+                    $('#table_id').DataTable({
+                        destroy: true,
+                        processing: true,
+                        serverSide: true,
+                        ajax: url,
+                        "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            // debugger;
+                            var numStart = this.fnPagingInfo().iStart;
+                            var index = numStart + iDisplayIndexFull + 1;
+                            // var index = iDisplayIndexFull + 1;
+                            $("td:first", nRow).html(index);
+                            return nRow;
+                        },
+                        columns: [
+                            {
+                                "className": '',
+                                "orderable": false,
+                                "defaultContent": ''
+                            },
+                            {
+                                "data": "klinik.nama_klinik",
+                                "name": "klinik.nama_klinik"
+                            },
+                            {
+                                "data": "klinik.alamat",
+                                "name": "klinik.alamat"
+                            },
+                            {
+                                "data": "klinik.no_hp",
+                                "name": "klinik.no_hp"
+                            },
+                            // {
+                            //     "data": "nama",
+                            //     "name": "nama"
+                            // },
+                            {
+                                "data": "username",
+                                "name": "username"
+                            },
+                            {
+                                "data": "id",
+                                "render": function (data, type, row) {
+                                    let string = JSON.stringify(row);
+                                    return "<div class='d-flex'>\n" +
+                                        "<a class='btn-success-soft sml rnd me-2' data-id='" +
+                                        data + "' data-row='" + string +
+                                        "' id='editData'> <i class='material-icons menu-icon'>edit</i></a>" +
+                                        "<a class='btn-danger-soft sml rnd' data-id='" +
+                                        data + "' data-name='" + row.nama + "' id='deleteData'> <i class='material-icons menu-icon'>delete</i></a>" +
+                                        "</div>";
+                                }
+                            },
+                        ]
+                    });
+                }
+
+                $(document).on('click', '#addData, #editData', function () {
+                    let row = $(this).data('row');
+                    console.log(row);
+                    $('.textForm').val('');
+                    if (row) {
+                        $.each(row, function (v, k) {
+                            if (row[v] && typeof row[v] === 'object') {
+                                    $.each(row[v], function (val, key) {
+                                        if (val != 'id'){
+                                            $('#' + [val]).val(row[v][val])
+                                        }
+                                    })
+                                }else{
+                                    $('#' + v).val(row[v])
+                                }
+                            }
+                        )
+                        $('#password').val('*******');
+                        $('#password_confirmation').val('*******');
+                    }
+                    $('#modaltambahuser').modal('show');
+                })
+
+                function createData() {
+                    saveData('Save Data', 'form', window.location.pathname, afterSave);
+                    return false;
+                }
+
+                function afterSave() {
+                    $('#modaltambahuser').modal('hide');
+                    datatable();
+                }
+            </script>
+            @endsection
 
 
-    </body>
+            </body>
 
-    </html>
+            </html>
