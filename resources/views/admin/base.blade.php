@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head> 
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,13 +32,13 @@
             </a>
 
             <p class="title">
-                Nama Perusahaan
+                Dinas Sosial,Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana Kabupaten Klaten
             </p>
         </div>
 
-        <p class="text-title text-center">
+        {{-- <p class="text-title text-center">
             Beranda
-        </p>
+        </p> --}}
 
         <div class="header-panel-kanan">
             <a class="profil dropdown-toggle" href="#" role="button" id="dropdownprofile"
@@ -63,7 +63,7 @@
             <ul class="nav flex-column" id="nav_accordion">
 
                 <li class="nav-item">
-                    <a class="title-role" href="#"> Admin </a>
+                    <a class="title-role" href="#"> {{ auth()->user()->nama }} </a>
                 </li>
 
                 {{-- <li class="nav-item">
