@@ -27,7 +27,7 @@ Transaksi
                                     <th>Tanggal</th>
                                     {{-- <th>Catatan</th> --}}
                                     <th>Status Pesanan</th>
-                                     <th>Action</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody class="select">
@@ -199,7 +199,7 @@ Transaksi
                     </div>
                     <form id="formQty" onsubmit="return updateQty()">
                         @csrf
-                        <input  name="id" id="id" hidden>
+                        <input name="id" id="id" hidden>
                         <div class="modal-body">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="qty_diminta" name="qty_diminta"
@@ -208,7 +208,7 @@ Transaksi
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="qty_tersedia" name="qty_tersedia"
-                                        disabled>
+                                       disabled>
                                 <label for="qty_tersedia" class="form-label">Sisa stok tersedia</label>
                             </div>
                             <div class="form-floating mb-3">
@@ -300,15 +300,18 @@ Transaksi
             $('#dk_username').val(row.user.username);
             $('#dk_nohpklinik').val(row.user.klinik.no_hp);
             $('#btnSimpan').addClass('d-none');
-            if (row.status == 0){
+            if (row.status == 0) {
                 $('#btnSimpan').removeClass('d-none');
+                if ('{{auth()->user()->role == 'admin'}}') {
+                    $('#btnSimpan').addClass('d-none');
+                }
             }
             idTrans = row.id;
             datatableDetail(idTrans);
         })
 
         function datatableDetail(id) {
-            var url = window.location.pathname + '/datatable/'+id;
+            var url = window.location.pathname + '/datatable/' + id;
             $('#table_detail').DataTable({
                 destroy: true,
                 processing: true,
@@ -352,15 +355,20 @@ Transaksi
                         "render": function (data, type, row) {
                             let string = JSON.stringify(row);
                             let btn = '<span>Selesai</span>';
-                            if (row.status == 0){
-                                btn =  " <a class='btn-utama sml rnd me-1 d-flex justify-content-center' id='gantiQty' data-stok='"+row.barang.qty+"' data-id='"+data+"' data-qty='"+row.qty+"'>Ganti Jumlah yang disetujui <i\n" +
+                            if (row.status == 0) {
+
+                                btn = " <a class='btn-utama sml rnd me-1 d-flex justify-content-center' id='gantiQty' data-stok='" + row.barang.qty + "' data-id='" + data + "' data-qty='" + row.qty + "'>Ganti Jumlah yang disetujui <i\n" +
                                     "                                                class='material-icons menu-icon ms-2'>info</i></a>\n" +
                                     "\n" +
-                                    "                                        <a class='btn-success sml rnd me-1 d-flex justify-content-center' data-qty='"+row.qty_disetujui+"' onclick='updateStatus(this,"+row.id+",1)'>Terima <i\n" +
+                                    "                                        <a class='btn-success sml rnd me-1 d-flex justify-content-center' data-qty='" + row.qty_disetujui + "' onclick='updateStatus(this," + row.id + ",1)'>Terima <i\n" +
                                     "                                                class='material-icons menu-icon ms-2'>check_circle</i></a>\n" +
                                     "\n" +
-                                    "                                        <a class='btn-danger sml rnd me-1 d-flex justify-content-center' data-qty='"+row.qty_disetujui+"'  onclick='updateStatus(this,"+row.id+",2)'>Tolak <i\n" +
+                                    "                                        <a class='btn-danger sml rnd me-1 d-flex justify-content-center' data-qty='" + row.qty_disetujui + "'  onclick='updateStatus(this," + row.id + ",2)'>Tolak <i\n" +
                                     "                                                class='material-icons menu-icon ms-2'>dangerous</i></a>"
+
+                                if ('{{auth()->user()->role == 'admin'}}') {
+                                    btn = '<span>Hanya pimpinan</span>';
+                                }
                             }
                             return "<div class='d-flex'>" + btn +
                                 "</div>";
@@ -370,22 +378,22 @@ Transaksi
             });
         }
 
-        $(document).on('click','#btnSimpan', function () {
+        $(document).on('click', '#btnSimpan', function () {
             let form = {
                 '_token': '{{csrf_token()}}',
                 'id': idTrans
             }
-            saveDataObjectFormData('Konfirmasi pemesanan',form, window.location.pathname+'/keranjang/konfirmasi',afterConfirm);
+            saveDataObjectFormData('Konfirmasi pemesanan', form, window.location.pathname + '/keranjang/konfirmasi', afterConfirm);
             return false;
         })
 
-        function afterConfirm(){
+        function afterConfirm() {
             datatableTransaksi();
             $('#btnSimpan').addClass('d-none');
 
         }
 
-        $(document).on('click','#gantiQty', function () {
+        $(document).on('click', '#gantiQty', function () {
             $('#modalChangeQty #qty_diminta').val($(this).data('qty'));
             $('#modalChangeQty #qty_diterima').val(0);
             $('#modalChangeQty #qty_tersedia').val($(this).data('stok'));
@@ -398,7 +406,7 @@ Transaksi
             let qty = $('#formQty #qty_diterima').val();
             console.log(stok);
             console.log(qty);
-            if (parseInt(stok) < parseInt(qty)){
+            if (parseInt(stok) < parseInt(qty)) {
                 swal("Jumlah stok tidak cukup ", {
                     icon: "info",
                     // buttons: false,
@@ -406,7 +414,7 @@ Transaksi
                 });
                 return false;
             }
-            saveData('Update data','formQty',window.location.pathname+'/keranjang/update-qty',afterUpdate)
+            saveData('Update data', 'formQty', window.location.pathname + '/keranjang/update-qty', afterUpdate)
             return false;
         }
 
@@ -415,12 +423,12 @@ Transaksi
             $('#modalChangeQty').modal('hide');
         }
 
-        function updateStatus(a,id, status) {
+        function updateStatus(a, id, status) {
             let text = 'Terima';
-            if (status == 2){
+            if (status == 2) {
                 text = 'Tolak';
             }
-            if ($(a).data('qty') == 0){
+            if ($(a).data('qty') == 0) {
                 swal("Silahkan masukkan qty yang disetujui ", {
                     icon: "info",
                     // buttons: false,
@@ -429,11 +437,11 @@ Transaksi
                 return false;
             }
             let form = {
-                '_token' : '{{csrf_token()}}',
-                'id' : id,
+                '_token': '{{csrf_token()}}',
+                'id': id,
                 'status': status
             };
-            saveDataObjectFormData(text+' Pesanan',form, window.location.pathname+'/keranjang/update-status', afterUpdate);
+            saveDataObjectFormData(text + ' Pesanan', form, window.location.pathname + '/keranjang/update-status', afterUpdate);
             return false;
         }
     </script>

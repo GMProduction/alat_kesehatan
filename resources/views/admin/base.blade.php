@@ -52,7 +52,11 @@
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
 
-        </div>
+        <ul class="dropdown-menu custom" aria-labelledby="dropdownprofile">
+            <li><a class="dropdown-item disabled" href="#">{{auth()->user()->nama}}</a></li>
+            <hr>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
 
     </div>
 
@@ -90,36 +94,36 @@
             </li> --}}
 
 
-                <li class="nav-item">
-                    <a class="nav-link menu @if ($sidebar == 'beranda') active @endif " href="/admin">
-                        <i class="material-icons menu-icon">home</i>
-                        <p class="menu-text">Beranda</p>
-                    </a>
-                </li>
-
+            <li class="nav-item">
+                <a class="nav-link menu @if ($sidebar == 'beranda') active @endif " href="/admin">
+                    <i class="material-icons menu-icon">home</i>
+                    <p class="menu-text">Beranda</p>
+                </a>
+            </li>
+            @if(auth()->user()->role == 'pimpinan')
                 <li class="nav-item">
                     <a class="nav-link menu @if ($sidebar == 'user') active @endif" href="/admin/user">
                         <i class="material-icons menu-icon">person</i>
                         <p class="menu-text">User</p>
                     </a>
                 </li>
+            @endif
 
+            <li class="nav-item">
+                <a class="nav-link menu @if ($sidebar == 'klinik') active @endif" href="/admin/klinik">
+                    <i class="material-icons menu-icon">emergency</i>
+                    <p class="menu-text">Klinik</p>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu @if ($sidebar == 'klinik') active @endif" href="/admin/klinik">
-                        <i class="material-icons menu-icon">emergency</i>
-                        <p class="menu-text">Klinik</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link menu @if ($sidebar == 'barang') active @endif" href="/admin/barang">
+                    <i class="material-icons menu-icon">content_paste</i>
+                    <p class="menu-text">Data Barang</p>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu @if ($sidebar == 'barang') active @endif" href="/admin/barang">
-                        <i class="material-icons menu-icon">content_paste</i>
-                        <p class="menu-text">Data Barang</p>
-                    </a>
-                </li>
-
-                {{-- <li class="nav-item has-submenu">
+            {{-- <li class="nav-item has-submenu">
                 <a class="nav-link menu @if ($sidebar == 'master') active @endif" href="#">
                     <i class="material-icons menu-icon">content_paste</i>
                     <p class="menu-text">Master</p>
@@ -137,16 +141,13 @@
                 </ul>
             </li> --}}
 
-                @if (auth()->user()->role == 'pimpinan')
-                    <li class="nav-item">
-                        <a class="nav-link menu @if ($sidebar == 'transaksi') active @endif"
-                            href="/admin/transaksi">
-                            <i class="material-icons menu-icon">sync</i>
-                            <p class="menu-text">Transaksi</p>
-                        </a>
-                    </li>
-                @endif
-                {{-- <li class="nav-item has-submenu">
+            <li class="nav-item">
+                <a class="nav-link menu @if ($sidebar == 'transaksi') active @endif" href="/admin/transaksi">
+                    <i class="material-icons menu-icon">sync</i>
+                    <p class="menu-text">Transaksi</p>
+                </a>
+            </li>
+            {{-- <li class="nav-item has-submenu">
                 <a class="nav-link menu" href="#">
                     <i class="material-icons menu-icon">sync</i>
                     <p class="menu-text">Transaksi</p>
