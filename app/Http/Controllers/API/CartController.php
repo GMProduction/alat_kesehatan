@@ -14,7 +14,7 @@ class CartController extends Controller
         if (request()->isMethod('POST')){
             return $this->postCart();
         }
-        $cart = Keranjang::where('transaksi_id','=',null)->get();
+        $cart = Keranjang::with('barang')->where('transaksi_id','=',null)->get();
         return $cart;
     }
 
