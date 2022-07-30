@@ -425,7 +425,7 @@
             if (status == 2) {
                 text = 'Tolak';
             }
-            if ($(a).data('qty') == 0) {
+            if (status == 1 && $(a).data('qty') == 0) {
                 swal("Silahkan masukkan qty yang disetujui ", {
                     icon: "info",
                     // buttons: false,
