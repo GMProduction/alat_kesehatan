@@ -22,6 +22,10 @@ class Transaksi extends Model
         return $this->hasMany(Keranjang::class,'transaksi_id');
     }
 
+    public function barang(){
+        return $this->hasManyDeep(Barang::class, [Keranjang::class], ["transaksi_id", "keranjang_id"], ["id", "id"]);
+    }
+
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }

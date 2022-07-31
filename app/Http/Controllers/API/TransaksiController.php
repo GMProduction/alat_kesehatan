@@ -21,7 +21,7 @@ class TransaksiController extends Controller
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null
      */
     public function detail($id){
-        $transaksi = Transaksi::with('cart')->find($id);
+        $transaksi = Transaksi::with('cart.barang')->find($id);
         return $transaksi;
     }
 
