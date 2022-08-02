@@ -31,7 +31,7 @@
                 </span>
             </a>
 
-            <p class="title">
+            <p class="title ">
                 Dinas Sosial,Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana
                 Kabupaten Klaten
             </p>

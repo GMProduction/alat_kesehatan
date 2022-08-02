@@ -14,8 +14,7 @@ body {
   padding: 20px;
   background-color: #fff;
   width: 450px;
-  position: relative;
-  /* or absolute */
+  position: relative; /* or absolute */
   display: block;
 }
 
@@ -87,7 +86,7 @@ body {
   margin-left: 10px;
   height: 30px;
   margin-bottom: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .text-title {
@@ -700,21 +699,15 @@ table {
 textarea.form-floating:before {
   content: "";
   position: absolute;
-  top: 1px;
-  /* border-width (default by BS) */
-  left: 1px;
-  /* border-width (default by BS) */
-  width: calc(100% - 14px);
-  /* to show scrollbar */
+  top: 1px; /* border-width (default by BS) */
+  left: 1px; /* border-width (default by BS) */
+  width: calc(100% - 14px); /* to show scrollbar */
   height: 32px;
-  border-radius: 4px;
-  /* (default by BS) */
+  border-radius: 4px; /* (default by BS) */
   background-color: #ffffff;
 }
 
 .form-floating textarea.form-control {
-  padding-top: 32px;
-  /* height of pseudo element */
-  min-height: 80px;
-  /* not relevant */
+  padding-top: 32px; /* height of pseudo element */
+  min-height: 80px; /* not relevant */
 }
