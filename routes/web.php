@@ -56,11 +56,12 @@ Route::prefix('admin')->middleware('auth')->group(
             Route::post('keranjang/update-qty',[TransaksiController::class,'updateQty']);
             Route::post('keranjang/update-status',[TransaksiController::class,'updateStatus']);
             Route::post('keranjang/konfirmasi',[TransaksiController::class,'konfirmasi']);
+            Route::get('cetak/{id}', [TransaksiController::class, 'cetakLaporan']);
+
         });
     }
 );
 
-Route::get('/admin/transaksi/cetak/{id}', [TransaksiController::class, 'cetakLaporan']);
 Route::get('/admin/laporanpesanan', [LaporanPesananController::class, 'index']);
 Route::get('/admin/masterbarang', [MasterBarangController::class, 'index']);
 Route::get('/admin/masterpelanggan', [MasterPelangganController::class, 'index']);

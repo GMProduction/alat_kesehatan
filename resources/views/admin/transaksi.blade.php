@@ -43,7 +43,7 @@
 
                     <div class="title">
                         <p>Detail</p>
-                        <a class="btn-accent  rnd ">Cetak <i
+                        <a class="btn-accent rnd d-none" id="btnCetak">Cetak <i
                                 class="material-icons menu-icon ms-2">print</i></a>
 
                     </div>
@@ -269,7 +269,7 @@
                         "data": "status",
                         "name": "status",
                         "render": function (data) {
-                            return data == 1 ? 'Diterima' : 'Menunggu';
+                            return data == 1 ? 'Dikirim' : data == 3 ? 'Diterima' : 'Menunggu';
                         }
                     },
                     {
@@ -297,6 +297,10 @@
             $('#dk_username').val(row.user.username);
             $('#dk_nohpklinik').val(row.user.klinik.no_hp);
             $('#btnSimpan').addClass('d-none');
+            $('#btnCetak').addClass('d-none');
+            if(row.status != 0){
+                $('#btnCetak').removeClass('d-none').attr('data-id',row.id);
+            }
             if (row.status == 0) {
                 $('#btnSimpan').removeClass('d-none');
                 if ('{{auth()->user()->role == 'admin'}}') {
@@ -387,8 +391,14 @@
         function afterConfirm() {
             datatableTransaksi();
             $('#btnSimpan').addClass('d-none');
+            $('#btnCetak').removeClass('d-none');
 
         }
+
+        $(document).on('click','#btnCetak', function () {
+            let id = $(this).data('id');
+            $(this).attr('href',window.location.pathname+'/cetak/'+id).attr('target','_blank');
+        });
 
         $(document).on('click', '#gantiQty', function () {
             $('#modalChangeQty #qty_diminta').val($(this).data('qty'));
