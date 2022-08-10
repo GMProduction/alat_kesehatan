@@ -69,16 +69,18 @@ class TransaksiController extends Controller
 
     public function cetakLaporan($id)
     {
-//        return $this->dataTransaksi();
+//        return $this->dataTransaksi($id);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->dataTransaksi())->setPaper('f4', 'potrait');
+        $pdf->loadHTML($this->dataTransaksi($id))->setPaper('f4', 'potrait');
 
         return $pdf->stream();
     }
 
-    public function dataTransaksi()
+    public function dataTransaksi($id)
     {
-        return view('admin/laporanpesanan')->with("");
+        $trans = Transaksi::with(['cart.barang','user'])->find($id);
+//        return $trans;
+        return view('admin/laporanpesanan',['data' => $trans]);
     }
 
     public function konfirmasi()

@@ -66,9 +66,11 @@ class BarangController extends CustomController
         }
         if (\request('id')){
             $barang = Barang::find(\request('id'));
-            if ($barang && $barang->foto){
-                if (file_exists('../public'.$barang->foto)) {
-                    unlink('../public'.$barang->foto);
+            if ($foto){
+                if ($barang && $barang->foto){
+                    if (file_exists('../public'.$barang->foto)) {
+                        unlink('../public'.$barang->foto);
+                    }
                 }
             }
             $barang->update($field);
