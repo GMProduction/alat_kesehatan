@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('transaction')->group(function (){
         Route::get('',[\App\Http\Controllers\API\TransaksiController::class,'index']);
         Route::get('{id}',[\App\Http\Controllers\API\TransaksiController::class,'detail']);
+        Route::post('{id}/terima',[\App\Http\Controllers\API\TransaksiController::class,'terima']);
     });
 
 });

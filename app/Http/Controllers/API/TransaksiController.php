@@ -25,4 +25,20 @@ class TransaksiController extends Controller
         return $transaksi;
     }
 
+    /**
+     * @param $id
+     *
+     * @return string
+     */
+    public function terima($id){
+        $transaksi = Transaksi::where([['status','=',1],['user_id','=',auth()->id()]])->find($id);
+        if ($transaksi){
+            $transaksi->update([
+                'status' => 3
+            ]);
+            return 'berhasil';
+        }
+        return 'transaksi tidak ditemukan';
+    }
+
 }
