@@ -138,8 +138,12 @@ class TransaksiController extends Controller
         }
 
         $trans = Transaksi::find(\request('id'));
+        $status = 2;
+        if (count($cart) > 0){
+            $status = 1;
+        }
         $trans->update([
-            'status' => 1
+            'status' => $status
         ]);
         return 'berhasil';
     }

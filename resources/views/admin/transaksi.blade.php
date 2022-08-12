@@ -272,7 +272,7 @@ Transaksi
                         "data": "status",
                         "name": "status",
                         "render": function (data) {
-                            return data == 1 ? 'Dikirim' : data == 3 ? 'Diterima' : 'Menunggu';
+                            return data == 1 ? 'Dikirim' : data == 3 ? 'Diterima' : data == 2 ? 'Ditolak' : 'Menunggu';
                         }
                     },
                     {
